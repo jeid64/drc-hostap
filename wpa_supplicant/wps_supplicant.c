@@ -1459,11 +1459,7 @@ int wpas_wps_ssid_bss_match(struct wpa_supplicant *wpa_s,
 	wps_ie = wpa_bss_get_vendor_ie_multi(bss, WPS_IE_VENDOR_TYPE);
 	if (eap_is_wps_pbc_enrollee(&ssid->eap)) {
 		if (!wps_ie) {
-#ifdef CONFIG_TENDONIN
 			if (!(wps_ie = wpa_bss_get_vendor_ie_multi(bss, WPS_DEV_OUI_NIN))) {
-#else /* CONFIG_TENDONIN */
-			if (1) {
-#endif /* CONFIG_TENDONIN */
 				wpa_printf(MSG_DEBUG, "   skip - non-WPS AP");
 				return 0;
 			}
@@ -1485,11 +1481,7 @@ int wpas_wps_ssid_bss_match(struct wpa_supplicant *wpa_s,
 
 	if (eap_is_wps_pin_enrollee(&ssid->eap)) {
 		if (!wps_ie) {
-#ifdef CONFIG_TENDONIN
 			if (!(wps_ie = wpa_bss_get_vendor_ie_multi(bss, WPS_DEV_OUI_NIN))) {
-#else /* CONFIG_TENDONIN */
-			if (1) {
-#endif /* CONFIG_TENDONIN */
 				wpa_printf(MSG_DEBUG, "   skip - non-WPS AP");
 				return 0;
 			}
